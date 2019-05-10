@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './components/Home';
+import Header from './components/Header';
+import PageNotFound from './components/PageNotFound';
+import MyCredenza from './containers/MyCredenza';
+import NeedToBuy from './components/NeedToBuy';
+import Fooditems from './components/Fooditems';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <Header />
+      <Switch>
+        <Route path='/' component={Home} exact={true} />
+        <Route path='/my-credenza' component={MyCredenza} />
+        <Route path='/need-to-buy' component={NeedToBuy} />
+        <Route path='/fooditems' component={Fooditems} />
+        <Route component={PageNotFound} />
+      </Switch>
     </div>
-  );
-}
+  </BrowserRouter>
+)
 
 export default App;
