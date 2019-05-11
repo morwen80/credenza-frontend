@@ -5,7 +5,6 @@ import Header from './components/Header';
 import PageNotFound from './components/PageNotFound';
 import MyCredenza from './containers/MyCredenza';
 import NeedToBuy from './components/NeedToBuy';
-import Fooditems from './components/Fooditems';
 
 const App = () => (
   <BrowserRouter>
@@ -15,7 +14,6 @@ const App = () => (
         <Route path='/' component={Home} exact={true} />
         <Route path='/my-credenza' component={MyCredenza} />
         <Route path='/need-to-buy' component={NeedToBuy} />
-        <Route path='/fooditems' component={Fooditems} />
         <Route component={PageNotFound} />
       </Switch>
     </div>

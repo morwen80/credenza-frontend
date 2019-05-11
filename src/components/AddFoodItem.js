@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import uuid from 'uuid'
 import {connect} from 'react-redux';
 import {addToCredenza}  from '../actions/credenzaActions'
 
@@ -27,7 +26,6 @@ class AddFoodItem extends Component {
 
 
   render() {
-
     return(
       <div>
         <form onSubmit={this.handleSubmit} className="addItemForm">
@@ -47,7 +45,6 @@ class AddFoodItem extends Component {
         />
         </div>
         <br />
-
         </form>
       </div>
     )

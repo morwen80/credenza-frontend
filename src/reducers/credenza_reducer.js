@@ -1,5 +1,3 @@
-import uuid from 'uuid';
-
 const initialState = {
   loading: false,
   error: null,
@@ -33,15 +31,23 @@ export default function credenzaReducer(state = initialState, action){
         }
       }
 
-      // case 'INCREMENT_ITEM_NUMBER': {
-      //   return {
-      //     ...state,
-      //     loading: false,
-      //     foodItems: {
-      //       ...state.foodItems.itemNumber + action.amount
-      //     }
-      //   }
-      // }
+      case 'INCREMENT_ITEM_NUMBER': {
+        return {
+          ...state,
+          foodItems: {
+            ...state.foodItems.itemnumber + 1
+            }
+          }
+        }
+
+        case 'DECREMENT_ITEM_NUMBER': {
+          return {
+            ...state,
+            foodItems: {
+              ...state.foodItems.itemnumber - 1
+              }
+            }
+          }
 
     case 'ADD_TO_CREDENZA_BEGIN':
       return {
@@ -55,17 +61,6 @@ export default function credenzaReducer(state = initialState, action){
         foodItems: state.foodItems.concat(action.payload)
         }
 
-    // case 'ADD_TO_CREDENZA2':
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     foodItems: {
-    //       id: action.id,
-    //       food: action.food,
-    //       itemnumber: action.number,
-    //       list_item: 1
-    //       }
-    //   }
 
     default:
       return state

@@ -1,44 +1,57 @@
 import React, {Component} from 'react';
-// import  {incrementItemNumber}  from '../actions/credenzaActions'
+import { connect } from 'react-redux';
+import  {incrementItemNumber, decrementItemNumber}  from '../actions/credenzaActions'
 
 class MyCredenzaItem extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      // itemnumber: this.props.itemnumber
+      itemnumber: props.itemnumber
     }
+  }
+
+  incrementItemNumber = () => {
+    this.setState({itemnumber: this.state.itemnumber + 1 })
+    // this.props.incrementItemNumber(this.state.itemnumber)
+  }
+
+  decrementItemNumber = () => {
+    this.setState({itemnumber: this.state.itemnumber - 1 })
   }
 
 
 render(){
 
   return (
-    // <div className="credenzaItem">
-    //   <ul>
-    //     <li> <span>{this.props.food} ({this.props.itemnumber})
-    //     </span>
-    //
-    //       <div className="incrementButtons">
-    //         <button> <i className="fas fa-plus-square"></i></button>
-    //         <button><i className="fas fa-minus-square"></i></button>
-    //       </div>
-    //     </li>
-    //   </ul>
-    // </div>
-    <p id={this.props.id}>{this.props.food} ({this.props.itemnumber})</p>
+    <div className="credenzaItem">
+      <ul>
+        <li>
+        <span>{this.props.food} ({this.state.itemnumber})</span>
+
+          <div className="incrementButtons">
+            <button onClick={this.incrementItemNumber}> <i className="fas fa-plus-square"></i></button>
+            <button onClick={this.decrementItemNumber}><i className="fas fa-minus-square"></i></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   )}
 }
+
 
 // const mapStateToProps = state => {
 //   return {
 //   credenza: state.foodItems.foodItems
 //   }
-
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     incrementItemNumber: () => dispatch(incrementItemNumber())
-//   }
 // }
 
-export default MyCredenzaItem
+
+const mapDispatchToProps = (dispatch, amount) => {
+  return {
+    incrementItemNumber: (amount) => dispatch(incrementItemNumber(amount)),
+    decrementItemNumber: (amount) => dispatch(decrementItemNumber(amount))
+  }
+}
+
+export default connect(mapDispatchToProps)(MyCredenzaItem)

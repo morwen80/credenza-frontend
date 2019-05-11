@@ -13,12 +13,11 @@ class MyCredenza extends Component {
   render() {
     const {loading} = this.props
     return (
-      <div>
-        <h3>this is just the container MyCredenza</h3>
+      <div className="myCredenzaContainer">
         <AddFoodItem />
 
         {loading ? <h3>Loading...</h3> :
-          <ListCredenza /> 
+          <ListCredenza />
         }
       </div>
     )
