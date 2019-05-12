@@ -30,6 +30,17 @@ export default function favesReducer(state = initialState, action) {
           faves: state.faves.concat(action.payload)
           }
 
+          case  'TOGGLE':
+            return state.map(item => {
+              if (item.id !== action.id) {
+                return item;
+              }
+              return {
+                ...item,
+                faved: !item.faved
+              }
+            })
+
         default:
             return state;
     }

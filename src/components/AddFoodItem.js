@@ -27,7 +27,7 @@ class AddFoodItem extends Component {
 
   render() {
     return(
-      <div>
+      <div className="AddFoodItemComponent">
         <form onSubmit={this.handleSubmit} className="addItemForm">
         <button type="submit">Add Food Item</button>
         <div className="foodInput">

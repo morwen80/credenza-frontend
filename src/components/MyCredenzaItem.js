@@ -20,7 +20,7 @@ render(){
     <div className="credenzaItem">
       <ul>
         <li key={id}>
-        <button onClick={() => this.addingToFaves(food)}><i className="fas fa-star"></i></button>
+        <button onClick={() => this.addingToFaves(food)} className="toggleToFaves"><i className="fas fa-star"></i></button>
         <span>
         {food}
         <button onClick={() => this.removingFromCredenza(id)} className="delete-food">x</button>

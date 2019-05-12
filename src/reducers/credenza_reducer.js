@@ -1,7 +1,6 @@
 const initialState = {
   loading: false,
   error: null,
-  message: '',
   foodItems: []
 }
 
@@ -67,6 +66,7 @@ export default function credenzaReducer(state = initialState, action){
         foodItems: state.foodItems.filter(foodItem => foodItem.id !== action.payload),
       }
 
+    
 
     default:
       return state
