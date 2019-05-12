@@ -13,43 +13,38 @@ render () {
   //   number={foodItem.itemNumber}
   //   needToBuy={foodItem.needToBuy}
   //   /> )
-
-console.log(this.props.credenza)
-const foodList = this.props.credenza.map((foodItem, idx) =>
-  <ul key={idx}>
-  <li key={idx}>
+console.log('list credenza', this.props.credenza)
+const foodList = this.props.credenza.map((foodItem) =>
+  <ul key={foodItem.id}>
+  <li key={foodItem.id}>
   <MyCredenzaItem
-    food={foodItem.food}
-    itemnumber={foodItem.itemnumber}
-    key={foodItem.id}
-    list_id={foodItem.list_id}
+    // food={foodItem.food}
+    // itemnumber={foodItem.itemnumber}
+    // list_id={foodItem.list_id}
+    // key={foodItem.id}
+    foodItemObj={foodItem}
     />
     </li>
     </ul>
   )
 
+  // const foodListAgain = this.props.credenza.map( foodItem =>
+  // <MyCredenzaItemNew key={foodItem.id}/>)
+
   return (
     <div className="listCredenza">
-
-       {foodList}
+      {foodList}
     </div>
-  )
+    )
+  }
 }
-}
-//
+
+
 const mapStateToProps = state => {
   return {
     credenza: state.foodItems.foodItems
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     fetchCredenza: () => dispatch(fetchCredenza())
-//   }
-// }
-
-
 
 
 export default connect(mapStateToProps)(ListCredenza)

@@ -31,23 +31,33 @@ export default function credenzaReducer(state = initialState, action){
         }
       }
 
-      case 'INCREMENT_ITEM_NUMBER': {
+      case 'SELECTING_ITEM_FOOD_TO_UPDATE': {
+        return {
+          ...state
+        }
+      }
+
+      // case 'UPDATE_ITEM_FOOD': {
+      //   return {
+      //     ...state,
+      //     foodItems: {
+      //       ...state.foodItems
+      //       }
+      //     }
+      //   }
+      case 'INCREMENT':
         return {
           ...state,
-          foodItems: {
-            ...state.foodItems.itemnumber + 1
-            }
-          }
+          foodItems: state.foodItems.itemnumber + 1
         }
 
-        case 'DECREMENT_ITEM_NUMBER': {
-          return {
-            ...state,
-            foodItems: {
-              ...state.foodItems.itemnumber - 1
-              }
-            }
-          }
+      case 'UPDATE_ITEM_FOOD': {
+        const updatedFood = {
+          ...state,
+          foodItems: { ...state.foodItems }
+      }
+      return updatedFood
+    };
 
     case 'ADD_TO_CREDENZA_BEGIN':
       return {

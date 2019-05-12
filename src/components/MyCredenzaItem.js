@@ -1,37 +1,27 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import  {incrementItemNumber, decrementItemNumber}  from '../actions/credenzaActions'
+import {addToFaves}  from '../actions/favesActions'
 
 class MyCredenzaItem extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      itemnumber: props.itemnumber
-    }
-  }
-
-  incrementItemNumber = () => {
-    this.setState({itemnumber: this.state.itemnumber + 1 })
-    // this.props.incrementItemNumber(this.state.itemnumber)
-  }
-
-  decrementItemNumber = () => {
-    this.setState({itemnumber: this.state.itemnumber - 1 })
-  }
-
 
 render(){
+  const {food, id} = this.props.foodItemObj
+
+  const addToFaves = (food) => {
+    console.log(food)
+    // this.props.addToFaves(this.props.foodItemObj)
+  }
+
 
   return (
     <div className="credenzaItem">
       <ul>
-        <li>
-        <span>{this.props.food} ({this.state.itemnumber})</span>
-
-          <div className="incrementButtons">
-            <button onClick={this.incrementItemNumber}> <i className="fas fa-plus-square"></i></button>
-            <button onClick={this.decrementItemNumber}><i className="fas fa-minus-square"></i></button>
-          </div>
+        <li key={id}>
+        <button onClick={() => this.addToFaves(food)}><i className="fas fa-star"></i></button>
+        <span>
+        {food}
+        <button className="delete-food">x</button>
+        </span>
         </li>
       </ul>
     </div>
@@ -40,18 +30,13 @@ render(){
 }
 
 
-// const mapStateToProps = state => {
-//   return {
-//   credenza: state.foodItems.foodItems
-//   }
-// }
 
 
-const mapDispatchToProps = (dispatch, amount) => {
+
+const mapDispatchToProps = (dispatch, newFave) => {
   return {
-    incrementItemNumber: (amount) => dispatch(incrementItemNumber(amount)),
-    decrementItemNumber: (amount) => dispatch(decrementItemNumber(amount))
+    addToFaves: (newFave) => dispatch(addToFaves(newFave))
   }
 }
 
-export default connect(mapDispatchToProps)(MyCredenzaItem)
+export default connect(null, mapDispatchToProps)(MyCredenzaItem)

@@ -106,7 +106,6 @@ nav {
 /*  MY CREDENZA ITEM*/
 .credenzaItem {
   width: 100%;
-
 }
 .credenzaItem ul {
   padding: 1rem 1rem 1rem 0;
@@ -114,6 +113,16 @@ nav {
 }
 .credenzaItem li {
   font-size: 1.5rem;
+}
+
+.delete-food {
+  float: right;
+  background-color: var(--darker);
+  color: var(--offwhite);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: .5rem 1rem;
+  border-radius: 5px;
 }
 .incrementButtons {
   float: right;
@@ -123,4 +132,12 @@ nav {
   border: 0;
   color: var(--dark);
   padding-top: 0;
+}
+.fa-star {
+  color: var(--grey);
+  margin-left: -.5rem;
+  margin-right: 1rem;
+}
+.fa-star active {
+  color: var(--accent);
 }

@@ -31,20 +31,15 @@ class AddFoodItem extends Component {
         <form onSubmit={this.handleSubmit} className="addItemForm">
         <button type="submit">Add Food Item</button>
         <div className="foodInput">
-        <input
-          placeholder="What do you have in your pantry?"
-          value={this.state.food}
-          name="food"
-          onChange={this.handleChange}
-        />
-        <input
-          placeholder="how many?"
-          value={this.state.itemnumber}
-          name="itemnumber"
-          onChange={this.handleChange}
-        />
+          <input
+            placeholder="What do you have in your pantry?"
+            value={this.state.food}
+            name="food"
+            onChange={this.handleChange}
+          />
+
         </div>
-        <br />
+          <br />
         </form>
       </div>
     )
