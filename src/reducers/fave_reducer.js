@@ -23,6 +23,13 @@ export default function favesReducer(state = initialState, action) {
                 loading: false,
                 error: action.error
             }
+        case 'ADD_TO_FAVES':
+        return {
+          ...state,
+          loading: false,
+          faves: state.faves.concat(action.payload)
+          }
+
         default:
             return state;
     }

@@ -9,7 +9,7 @@ export function fetchFaves() {
 
 export function addToFaves(newFoodItem) {
   const newFood = {
-    food: newFoodItem.food,
+    food: newFoodItem,
     list_id: 1
   }
   return (dispatch) => {
@@ -24,6 +24,6 @@ export function addToFaves(newFoodItem) {
   body: JSON.stringify(newFood)
     })
     .then(response => response.json())
-    .then(allFaves => dispatch({ type: 'ADD_TO_CREDENZA', payload: allFaves }));
+    .then(allFaves => dispatch({ type: 'ADD_TO_FAVES', payload: allFaves }));
 };
 }

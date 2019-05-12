@@ -4,20 +4,19 @@ import {addToFaves}  from '../actions/favesActions'
 
 class MyCredenzaItem extends Component {
 
-render(){
-  const {food, id} = this.props.foodItemObj
-
-  const addToFaves = (food) => {
+  addingToFaves = (food) => {
     console.log(food)
-    // this.props.addToFaves(this.props.foodItemObj)
+    this.props.addToFaves(food)
   }
 
+render(){
+  const {food, id} = this.props.foodItemObj
 
   return (
     <div className="credenzaItem">
       <ul>
         <li key={id}>
-        <button onClick={() => this.addToFaves(food)}><i className="fas fa-star"></i></button>
+        <button onClick={() => this.addingToFaves(food)}><i className="fas fa-star"></i></button>
         <span>
         {food}
         <button className="delete-food">x</button>
@@ -33,7 +32,7 @@ render(){
 
 
 
-const mapDispatchToProps = (dispatch, newFave) => {
+const mapDispatchToProps = dispatch => {
   return {
     addToFaves: (newFave) => dispatch(addToFaves(newFave))
   }
