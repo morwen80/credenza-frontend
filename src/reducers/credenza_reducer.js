@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
   error: null,
+  message: '',
   foodItems: []
 }
 
@@ -31,12 +32,6 @@ export default function credenzaReducer(state = initialState, action){
         }
       }
 
-      case 'SELECTING_ITEM_FOOD_TO_UPDATE': {
-        return {
-          ...state
-        }
-      }
-
       // case 'UPDATE_ITEM_FOOD': {
       //   return {
       //     ...state,
@@ -45,11 +40,7 @@ export default function credenzaReducer(state = initialState, action){
       //       }
       //     }
       //   }
-      case 'INCREMENT':
-        return {
-          ...state,
-          foodItems: state.foodItems.itemnumber + 1
-        }
+
 
       case 'UPDATE_ITEM_FOOD': {
         const updatedFood = {
@@ -69,7 +60,12 @@ export default function credenzaReducer(state = initialState, action){
         ...state,
         loading: false,
         foodItems: state.foodItems.concat(action.payload)
-        }
+      };
+
+    case 'REMOVE_FROM_CREDENZA':
+      return {
+        foodItems: state.foodItems.filter(foodItem => foodItem.id !== action.payload),
+      }
 
 
     default:

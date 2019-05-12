@@ -8,10 +8,6 @@ export const fetchCredenzaSuccess = foodItems => ({
   foodItems
 });
 
-// export const updateItemFood = (amount) => ({
-//   type: 'UPDATE_ITEM_FOOD',
-//   amount
-// })
 
 export const increment = () => {
     return {
@@ -54,19 +50,32 @@ export function addToCredenza(newFoodItem) {
 }
 
 
-export function updateItemFood(foodItem) {
+// export function updateItemFood(foodItem) {
+//
+//   return (dispatch) => {
+//     dispatch({ type: 'INCREMENT' });
+//     fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+//     method: 'PATCH',
+//     headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(foodItem)
+//     })
+//     .then(response => response.json())
+//     .then(updatedItemFood => dispatch({ type: 'UPDATE_ITEM_FOOD', payload: updatedItemFood }));
+// };
+// }
 
+
+export function removeFromCredenza(id) {
   return (dispatch) => {
-    dispatch({ type: 'INCREMENT' });
-    fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
-    method: 'PATCH',
-    headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(foodItem)
-    })
+    dispatch({ type: 'REMOVE_FROM_CREDENZA', payload: id });
+
+    fetch(`http://localhost:3000/fooditems/${id}`, {
+      method: 'DELETE'}
+    )
     .then(response => response.json())
-    .then(updatedItemFood => dispatch({ type: 'UPDATE_ITEM_FOOD', payload: updatedItemFood }));
-};
+    .then(foodInCredenza => dispatch({ type: 'FETCH_FROM_CREDENZA', payload: foodInCredenza }));
+  };
 }

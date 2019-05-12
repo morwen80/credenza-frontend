@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {addToFaves}  from '../actions/favesActions'
+import { removeFromCredenza } from '../actions/credenzaActions'
 
 class MyCredenzaItem extends Component {
 
   addingToFaves = (food) => {
-    console.log(food)
     this.props.addToFaves(food)
+  }
+
+  removingFromCredenza = (id) => {
+    this.props.removeFromCredenza(id)
   }
 
 render(){
@@ -19,7 +23,7 @@ render(){
         <button onClick={() => this.addingToFaves(food)}><i className="fas fa-star"></i></button>
         <span>
         {food}
-        <button className="delete-food">x</button>
+        <button onClick={() => this.removingFromCredenza(id)} className="delete-food">x</button>
         </span>
         </li>
       </ul>
@@ -34,7 +38,8 @@ render(){
 
 const mapDispatchToProps = dispatch => {
   return {
-    addToFaves: (newFave) => dispatch(addToFaves(newFave))
+    addToFaves: (newFave) => dispatch(addToFaves(newFave)),
+    removeFromCredenza: (id) => dispatch(removeFromCredenza(id))
   }
 }
 

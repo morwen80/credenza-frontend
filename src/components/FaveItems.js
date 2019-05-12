@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 class FaveItems extends Component {
 
   render(){
-    console.log("FaveItems", this.props.faves)
     const listOfFaves = this.props.faves.map(fave => <li key={fave.id}>- {fave.food}</li>)
     return (
       <div>
+      <h1>Favourite Items</h1>
       <ul>
         {listOfFaves}
       </ul>

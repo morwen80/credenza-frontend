@@ -5,14 +5,6 @@ import {connect} from 'react-redux';
 class ListCredenza extends Component {
 render () {
 
-  // const foodList = props.credenza.map(item => <li key={item.id}>{item.id}</li>)
-
-  // const renderFoodList = this.props.credenza.map(foodItem => <MyCredenzaItem
-  //   key={foodItem.id}
-  //   food={foodItem.food}
-  //   number={foodItem.itemNumber}
-  //   needToBuy={foodItem.needToBuy}
-  //   /> )
 console.log('list credenza', this.props.credenza)
 const foodList = this.props.credenza.map((foodItem) =>
   <ul key={foodItem.id}>
