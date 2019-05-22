@@ -6,7 +6,6 @@ import MyCredenzaItem from '../components/MyCredenzaItem';
 class ListCredenza extends Component {
 
 render () {
-console.log('listCredenza', this.props.credenza)
 const foodList = this.props.credenza.map((foodItem) =>
   <ul key={foodItem.id}>
     <li key={foodItem.id}>

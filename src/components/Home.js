@@ -1,11 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import ListCredenza from '../containers/ListCredenza'
+import AddFoodItem from './AddFoodItem'
+import { connect } from 'react-redux';
+import  {fetchCredenza, addToCredenza}  from '../actions/credenzaActions'
 
-const Home = () => (
-  <div className="homepage">
-    <Link to='/my-credenza'><button className="btn1">My Credenza</button></Link>
-    <br />
-    <Link to='/favourites'><button className="btn2">My Favourite Items</button></Link>
-  </div>
-)
-export default Home
+class Home extends Component {
+
+  componentDidMount(){
+    this.props.fetchCredenza();
+  }
+
+  render() {
+    const {loading, credenza, addToCredenza, updateFood} = this.props
+    return (
+      <div className="myCredenzaContainer">
+        <AddFoodItem
+          credenza={credenza}
+          addToCredenza={addToCredenza}
+        />
+
+        {loading ? <h3>Loading...</h3> :
+          <ListCredenza credenza={credenza}
+          />
+        }
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    credenza: state.foodItems.foodItems
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCredenza: () => dispatch(fetchCredenza()),
+    addToCredenza: newFoodItem => dispatch(addToCredenza(newFoodItem))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
