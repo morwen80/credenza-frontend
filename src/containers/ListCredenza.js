@@ -1,42 +1,38 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { removeFromCredenza } from '../actions/credenzaActions'
 import MyCredenzaItem from '../components/MyCredenzaItem';
-import {connect} from 'react-redux';
 
 class ListCredenza extends Component {
-render () {
 
-console.log('list credenza', this.props.credenza)
+render () {
+console.log('listCredenza', this.props.credenza)
 const foodList = this.props.credenza.map((foodItem) =>
   <ul key={foodItem.id}>
-  <li key={foodItem.id}>
-  <MyCredenzaItem
-    // food={foodItem.food}
-    // itemnumber={foodItem.itemnumber}
-    // list_id={foodItem.list_id}
-    // key={foodItem.id}
-    foodItemObj={foodItem}
-    />
+    <li key={foodItem.id}>
+      <MyCredenzaItem
+        foodItemObj={foodItem}
+        removeFromCredenza={this.props.removeFromCredenza}
+      />
     </li>
-    </ul>
+  </ul>
   )
-
-  // const foodListAgain = this.props.credenza.map( foodItem =>
-  // <MyCredenzaItemNew key={foodItem.id}/>)
 
   return (
     <div className="listCredenza">
-      {foodList}
+      {foodList.length < 1 ?
+        <h2 className="emptyCredenza">Your credenza is currently empty. </h2> :
+        foodList
+      }
     </div>
     )
   }
 }
 
-
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
   return {
-    credenza: state.foodItems.foodItems
+    removeFromCredenza: (id) => dispatch(removeFromCredenza(id)),
   }
 }
 
-
-export default connect(mapStateToProps)(ListCredenza)
+export default connect(null, mapDispatchToProps)(ListCredenza)

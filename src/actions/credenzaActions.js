@@ -1,6 +1,3 @@
-
-
-
 export function fetchCredenza() {
   return (dispatch) => {
     dispatch({ type: 'LOAD_CREDENZA' });
@@ -15,7 +12,8 @@ export function addToCredenza(newFoodItem) {
   const newFood = {
     food: newFoodItem.food,
     itemnumber: newFoodItem.itemnumber,
-    list_id: 1
+    list_id: 1,
+    faved: false
   }
   return (dispatch) => {
     dispatch({ type: 'LOAD_CREDENZA' });

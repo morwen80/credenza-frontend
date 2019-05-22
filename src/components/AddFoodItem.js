@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {addToCredenza}  from '../actions/credenzaActions'
 
 class AddFoodItem extends Component {
   constructor(){
@@ -46,17 +44,4 @@ class AddFoodItem extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    credenza: state.foodItems.foodItems
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCredenza: newFoodItem => dispatch(addToCredenza(newFoodItem))
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddFoodItem)
+export default AddFoodItem

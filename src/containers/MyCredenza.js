@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ListCredenza from './ListCredenza'
 import AddFoodItem from '../components/AddFoodItem'
 import { connect } from 'react-redux';
-import  {fetchCredenza}  from '../actions/credenzaActions'
+import  {fetchCredenza, addToCredenza}  from '../actions/credenzaActions'
 
 class MyCredenza extends Component {
 
@@ -11,29 +11,34 @@ class MyCredenza extends Component {
   }
 
   render() {
-    const {loading} = this.props
+    const {loading, credenza, addToCredenza, updateFood} = this.props
     return (
       <div className="myCredenzaContainer">
-        <AddFoodItem />
+        <AddFoodItem
+          credenza={credenza}
+          addToCredenza={addToCredenza}
+        />
 
         {loading ? <h3>Loading...</h3> :
-          <ListCredenza />
+          <ListCredenza credenza={credenza}
+          />
         }
       </div>
     )
   }
 }
 
-
 const mapStateToProps = state => {
   return {
-    loading: state.loading
+    loading: state.loading,
+    credenza: state.foodItems.foodItems
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCredenza: () => dispatch(fetchCredenza())
+    fetchCredenza: () => dispatch(fetchCredenza()),
+    addToCredenza: newFoodItem => dispatch(addToCredenza(newFoodItem))
   }
 }
 
