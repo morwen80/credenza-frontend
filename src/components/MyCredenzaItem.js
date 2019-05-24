@@ -4,6 +4,7 @@ class MyCredenzaItem extends Component {
 
 
 render(){
+
   const {food, id, faved} = this.props.foodItemObj
   const {foodItemObj, newFaved, toggleFaved, incrementing, decrementing, removingFromCredenza} = this.props
 
@@ -22,6 +23,9 @@ render(){
           />
 
             {food}
+            <button onClick={() => removingFromCredenza(id)} className="delete-food">
+              <i className="fas fa-trash-alt"></i>
+            </button>
 
             <CountButtons
               key={id}
@@ -30,10 +34,6 @@ render(){
               decrementing={decrementing}
             />
 
-
-            <button onClick={() => removingFromCredenza(id)} className="delete-food">
-              <i className="fas fa-trash-alt"></i>
-            </button>
           </span>
         </li>
       </ul>

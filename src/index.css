@@ -150,17 +150,49 @@ nav a:hover {
   font-size: 1.3rem;
 }
 
-#checkFaves {
-  margin-right: .6rem;
-}
 .delete-food {
   float: right;
   background-color: var(--darker);
   color: var(--offwhite);
   font-size: 1rem;
   font-weight: 900;
-  padding: .5rem 1.3rem;
+  padding: .5rem 1.2rem;
   border-radius: 5px;
+  margin-right: .5rem;
+}
+/* .indecresingBtns {
+  float: right;
+  display: flex;
+  flex-direction: column;
+} */
+/* .indecresingBtns button {
+  background-color: var(--accent);
+  color: var(--offwhite);
+  border: 1px solid var(--accent);
+  text-align: center;
+  height: 20px;
+  width: 20px;
+} */
+
+.indecresingBtns {
+  float: right;
+  margin-right: 1rem;
+
+}
+.indecresingBtns button {
+  font-size: 1.8rem;
+  border: 0;
+  background-color: transparent;
+  padding-top: 0;
+  color: var(--offwhite);
+  cursor: pointer;
+}
+.indecresingBtns button:hover {
+  color: var(--darker);
+}
+
+.indecresingBtns button:focus{
+  outline: 0;
 }
 /* input[type=checkbox] {
   opacity: 1;
@@ -250,4 +282,22 @@ nav a:hover {
 #egg404 {
   padding-top: 2rem;
   width: 70%;
+}
+
+/* MODAL */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+.modalBody {
+  text-align: center;
+  background-color: var(--mainWhite);
 }

@@ -4,6 +4,13 @@ import { removeFromCredenza, updateFaves, increment, editFoodItem} from '../acti
 import MyCredenzaItem from '../components/MyCredenzaItem';
 
 class ListCredenza extends Component {
+  constructor(){
+    super()
+    this.state = {
+      modalOpen: true,
+    }
+  }
+
   componentDidMount(){
     this.props.fetchCredenza();
   }
@@ -26,11 +33,15 @@ class ListCredenza extends Component {
   }
 
   decrementing = (obj) => {
-    obj.itemnumber = obj.itemnumber - 1;
-    this.props.editFoodItem(obj)
+    if(obj.itemnumber > 1) {
+      obj.itemnumber = obj.itemnumber - 1;
+      this.props.editFoodItem(obj);
+    }
   }
 
 render () {
+
+
 const foodList = this.props.credenza.map(foodItem =>
     <li key={foodItem.id}>
       <MyCredenzaItem
@@ -41,6 +52,7 @@ const foodList = this.props.credenza.map(foodItem =>
         newFaved={this.newFaved}
         incrementing={this.incrementing}
         decrementing={this.decrementing}
+
       />
     </li>
   )
