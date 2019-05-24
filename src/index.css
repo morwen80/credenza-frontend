@@ -149,6 +149,7 @@ nav a:hover {
 .credenzaItem li {
   font-size: 1.3rem;
 }
+
 #checkFaves {
   margin-right: .6rem;
 }
@@ -218,7 +219,22 @@ nav a:hover {
   padding: 1rem 1.5rem;
 }
 
+/*  FAVES */
+.faveList li {
+  list-style-type: none;
+  line-height: 200%;
+}
 
+.faveList ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+  width: 1.5rem;
+  margin-left: .1em;
+}
 
 /*  PAGE NOT FOUND*/
 .notFound {
