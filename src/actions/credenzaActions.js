@@ -46,10 +46,7 @@ export function removeFromCredenza(id) {
 
 
 export function updateFaves(foodItem) {
-  // const testingFood = {
-  //   ...foodItem,
-  //   faved: !foodItem.faved
-  // }
+
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
 
     return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
@@ -65,3 +62,19 @@ export function updateFaves(foodItem) {
     .catch(error => dispatch({ type: 'EDIT_FOOD_ERROR', error: error.message }));
   }
 }
+
+export function increment(foodItem) {
+  return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
+  debugger
+    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`)
+      .then(response => response.json())
+      .then(incremented => dispatch({ type: 'EDIT_FOOD_SUCCESS', payload: incremented }))
+      .catch(error => dispatch({ type: 'EDIT_FOOD_ERROR', error: error.message }));;
+  };
+}
+
+// export function increment() {
+//   return {
+//     type: 'INCREMENT'
+//   }
+// }

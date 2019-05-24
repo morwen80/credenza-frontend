@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { removeFromCredenza, updateFaves} from '../actions/credenzaActions'
+import { removeFromCredenza, updateFaves, increment} from '../actions/credenzaActions'
 import MyCredenzaItem from '../components/MyCredenzaItem';
 
 class ListCredenza extends Component {
+  constructor(){
+    super()
+    this.state = {
+
+    }
+  }
 
   componentDidMount(){
     this.props.fetchCredenza();
+  }
+
+  removingFromCredenza = (id) => {
+    this.props.removeFromCredenza(id)
   }
 
   toggleFaved = (obj) => {
@@ -17,15 +27,23 @@ class ListCredenza extends Component {
     this.props.updateFaves(obj)
   }
 
+  incrementing = (obj) => {
+    obj.itemnumber = obj.itemnumber + 1;
+
+    this.props.updateFaves(obj)
+  }
+
 render () {
 const foodList = this.props.credenza.map(foodItem =>
     <li key={foodItem.id}>
       <MyCredenzaItem
         foodItemObj={foodItem}
-        removeFromCredenza={this.props.removeFromCredenza}
+        removingFromCredenza={this.removingFromCredenza}
         updateFaves={this.props.updateFaves}
         toggleFaved={this.toggleFaved}
         newFaved={this.newFaved}
+        // increment={this.props.increment}
+        incrementing={this.incrementing}
       />
     </li>
   )
@@ -41,12 +59,12 @@ const foodList = this.props.credenza.map(foodItem =>
   }
 }
 
+
 const mapDispatchToProps = dispatch => {
   return {
     removeFromCredenza: (id) => dispatch(removeFromCredenza(id)),
-    updateFaves: (obj) => dispatch(updateFaves(obj))
-    // updateFood: (obj) => dispatch(updateFood(obj)),
-    // increment: (num) => dispatch(increment(num))
+    updateFaves: (obj) => dispatch(updateFaves(obj)),
+    increment: (obj) => dispatch(increment(obj))
   }
 }
 

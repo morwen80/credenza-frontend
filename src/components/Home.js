@@ -16,8 +16,10 @@ class Home extends Component {
         />
 
         {loading ? <h3>Loading...</h3> :
-          <ListCredenza credenza={credenza} fetchCredenza={this.props.fetchCredenza
-          } />
+          <ListCredenza
+            credenza={credenza}
+            fetchCredenza={this.props.fetchCredenza}
+          />
         }
       </div>
     )

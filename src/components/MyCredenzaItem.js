@@ -1,39 +1,45 @@
 import React, {Component} from 'react';
-
+import CountButtons from './CountButtons'
 class MyCredenzaItem extends Component {
 
-  removingFromCredenza = (id) => {
-    this.props.removeFromCredenza(id)
-  }
-
-  // toggleFaved = (obj) => {
-  //   const newObj = {...obj,
-  //     faved: !obj.faved
-  //   }
-  //   this.props.updateFaves(newObj)
+  // removingFromCredenza = (id) => {
+  //   this.props.removeFromCredenza(id)
   // }
+
+  // incrementing = (itemnumber) => {
+  //   this.props.increment(itemnumber)
+  // }
+
 
 render(){
   const {food, id, faved} = this.props.foodItemObj
+  const {foodItemObj, newFaved, toggleFaved, incrementing} = this.props
 
   return (
     <div className="credenzaItem">
       <ul>
         <li key={id}>
           <span>
-          <label for="faved" className="favedLabel"></label>
           <input
             type="checkbox"
             name="faved"
             id={id}
             checked={faved}
-            onChange={() => this.props.toggleFaved(this.props.foodItemObj)}
-            onClick={() => this.props.newFaved({...this.props.foodItemObj, faved:!faved})}
+            onChange={() => toggleFaved(foodItemObj)}
+            onClick={() => newFaved({...foodItemObj, faved:!faved})}
           />
 
             {food}
 
-            <button onClick={() => this.removingFromCredenza(id)} className="delete-food">
+            <CountButtons
+              key={id}
+              foodObj={foodItemObj}
+              // increment={this.props.increment}
+              incrementing={incrementing}
+            />
+
+
+            <button onClick={() => this.props.removingFromCredenza(id)} className="delete-food">
               <i className="fas fa-trash-alt"></i>
             </button>
           </span>
