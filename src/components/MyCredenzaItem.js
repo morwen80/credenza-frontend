@@ -21,13 +21,16 @@ render(){
       <ul>
         <li key={id}>
           <span>
+          <label for="faved" className="favedLabel"></label>
           <input
             type="checkbox"
             name="faved"
+            id={id}
             checked={faved}
             onChange={() => this.props.toggleFaved(this.props.foodItemObj)}
             onClick={() => this.props.newFaved({...this.props.foodItemObj, faved:!faved})}
           />
+
             {food}
 
             <button onClick={() => this.removingFromCredenza(id)} className="delete-food">
