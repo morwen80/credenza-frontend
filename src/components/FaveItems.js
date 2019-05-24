@@ -1,28 +1,22 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux'
 
 class FaveItems extends Component {
 
   render(){
-
-    const listOfFaves = this.props.faves.map(fave => <li key={fave.id}>- {fave.food}</li>)
+    const itemsChecked = this.props.credenza.filter(item => item.faved === true)
+    const listOfFaves = itemsChecked.map(fave => <li key={fave.id}>- {fave.food}</li>)
 
     return (
       <div className="faveList">
       <h1>Favourite Items</h1>
+
       <ul>
-        {listOfFaves}
+        {listOfFaves.length < 1 ? <h3>No faves yet :( </h3> : listOfFaves}
       </ul>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    faves: state.faves.faves
-  }
-}
 
-
-export default connect(mapStateToProps)(FaveItems)
+export default FaveItems

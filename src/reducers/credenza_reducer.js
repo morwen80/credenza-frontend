@@ -14,39 +14,88 @@ export default function credenzaReducer(state = initialState, action){
         error: null
       };
 
-    case 'FETCH_CREDENZA_SUCCESS': {
-      return {
-        ...state,
-        loading: false,
-        foodItems: action.payload
-      }
-    }
 
-    case 'FETCH_CREDENZA_ERROR': {
+    case 'FETCH_CREDENZA_ERROR':
       return {
         ...state,
         loading: false,
-        error: action.payload.error,
-        foodItems: []
-      }
+        error: action.payload.error
     };
 
-    case 'ADD_TO_CREDENZA_BEGIN':
-      return {
-        ...state
-      };
+    case 'FETCH_CREDENZA_SUCCESS':
+    return {
+      ...state,
+      loading: false,
+      foodItems: action.payload
+    };
 
-    case 'ADD_TO_CREDENZA':
+
+    case 'ADD_TO_CREDENZA_BEGIN':
+    return {
+      ...state,
+      loading: true,
+      error: null
+    };
+
+    case 'ADD_TO_CREDENZA_SUCCESS':
       return {
         ...state,
         loading: false,
+        error: null,
         foodItems: state.foodItems.concat(action.payload)
       };
+    case 'ADD_TO_CREDENZA_ERROR':
+      return {
+        ...state,
+         loading: false,
+         error: action.error.message
+      }
 
     case 'REMOVE_FROM_CREDENZA':
       return {
         foodItems: state.foodItems.filter(foodItem => foodItem.id !== action.payload),
       };
+
+    // case 'EDIT_FOOD_SUCCESS':
+    // const updatedItems = state.foodItems.map(item => {
+    //   if(item.id === action.id){
+    //     return { ...item, ...action.payload }
+    //   }
+    //   return item
+    // })
+    // return updatedItems
+
+
+    // case 'EDIT_FOOD':
+    //   return state.foodItems.map(foodObj =>foodObj.id === action.id ? {...foodObj,faved: !foodObj.faved} : foodObj)
+
+
+    // case 'UPDATE_ITEM_FOOD':
+    //   // const newFoodItems = ...state.foodItems;
+    //   return state.foodItems.map(foodObj =>foodObj.id === action.id ? {foodObj: action.payload} : foodObj)
+
+    case 'EDIT_FOOD_ATTEMPT':
+      return {
+        ...state,
+         loading: true,
+         error: null
+      }
+
+    case 'EDIT_FOOD_SUCCESS':
+      const newFoodItems = state.foodItems.map(foodObj => foodObj.id === action.id ? {foodObj: action.payload} : foodObj)
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      foodItems: newFoodItems
+    };
+
+    case 'EDIT_FOOD_ERROR':
+      return {
+        ...state,
+         loading: false,
+         error: action.error.message
+      }
 
     default:
       return state

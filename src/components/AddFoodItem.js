@@ -4,9 +4,7 @@ class AddFoodItem extends Component {
   constructor(){
     super()
     this.state = {
-      food: "",
-      itemnumber: 1,
-      list_id: 1
+      food: ""
     }
   }
 
@@ -27,10 +25,10 @@ class AddFoodItem extends Component {
     return(
       <div className="AddFoodItemComponent">
         <form onSubmit={this.handleSubmit} className="addItemForm">
-        <button type="submit">Add Food Item</button>
+        <button type="submit">add food item</button>
         <div className="foodInput">
           <input
-            placeholder="What do you have in your pantry?"
+            placeholder="new pantry item"
             value={this.state.food}
             name="food"
             onChange={this.handleChange}

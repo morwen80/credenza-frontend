@@ -6,12 +6,8 @@ import  {fetchCredenza, addToCredenza}  from '../actions/credenzaActions'
 
 class Home extends Component {
 
-  componentDidMount(){
-    this.props.fetchCredenza();
-  }
-
   render() {
-    const {loading, credenza, addToCredenza, updateFood} = this.props
+    const {loading, credenza, addToCredenza} = this.props
     return (
       <div className="myCredenzaContainer">
         <AddFoodItem
@@ -20,8 +16,8 @@ class Home extends Component {
         />
 
         {loading ? <h3>Loading...</h3> :
-          <ListCredenza credenza={credenza}
-          />
+          <ListCredenza credenza={credenza} fetchCredenza={this.props.fetchCredenza
+          } />
         }
       </div>
     )
