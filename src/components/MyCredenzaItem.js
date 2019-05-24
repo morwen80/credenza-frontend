@@ -2,18 +2,10 @@ import React, {Component} from 'react';
 import CountButtons from './CountButtons'
 class MyCredenzaItem extends Component {
 
-  // removingFromCredenza = (id) => {
-  //   this.props.removeFromCredenza(id)
-  // }
-
-  // incrementing = (itemnumber) => {
-  //   this.props.increment(itemnumber)
-  // }
-
 
 render(){
   const {food, id, faved} = this.props.foodItemObj
-  const {foodItemObj, newFaved, toggleFaved, incrementing} = this.props
+  const {foodItemObj, newFaved, toggleFaved, incrementing, decrementing, removingFromCredenza} = this.props
 
   return (
     <div className="credenzaItem">
@@ -34,12 +26,12 @@ render(){
             <CountButtons
               key={id}
               foodObj={foodItemObj}
-              // increment={this.props.increment}
               incrementing={incrementing}
+              decrementing={decrementing}
             />
 
 
-            <button onClick={() => this.props.removingFromCredenza(id)} className="delete-food">
+            <button onClick={() => removingFromCredenza(id)} className="delete-food">
               <i className="fas fa-trash-alt"></i>
             </button>
           </span>

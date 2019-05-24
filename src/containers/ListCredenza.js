@@ -1,16 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { removeFromCredenza, updateFaves, increment} from '../actions/credenzaActions'
+import { removeFromCredenza, updateFaves, increment, editFoodItem} from '../actions/credenzaActions'
 import MyCredenzaItem from '../components/MyCredenzaItem';
 
 class ListCredenza extends Component {
-  constructor(){
-    super()
-    this.state = {
-
-    }
-  }
-
   componentDidMount(){
     this.props.fetchCredenza();
   }
@@ -29,8 +22,12 @@ class ListCredenza extends Component {
 
   incrementing = (obj) => {
     obj.itemnumber = obj.itemnumber + 1;
+    this.props.editFoodItem(obj)
+  }
 
-    this.props.updateFaves(obj)
+  decrementing = (obj) => {
+    obj.itemnumber = obj.itemnumber - 1;
+    this.props.editFoodItem(obj)
   }
 
 render () {
@@ -42,8 +39,8 @@ const foodList = this.props.credenza.map(foodItem =>
         updateFaves={this.props.updateFaves}
         toggleFaved={this.toggleFaved}
         newFaved={this.newFaved}
-        // increment={this.props.increment}
         incrementing={this.incrementing}
+        decrementing={this.decrementing}
       />
     </li>
   )
@@ -64,7 +61,8 @@ const mapDispatchToProps = dispatch => {
   return {
     removeFromCredenza: (id) => dispatch(removeFromCredenza(id)),
     updateFaves: (obj) => dispatch(updateFaves(obj)),
-    increment: (obj) => dispatch(increment(obj))
+    increment: (obj) => dispatch(increment(obj)),
+    editFoodItem: (obj) => dispatch(editFoodItem(obj))
   }
 }
 

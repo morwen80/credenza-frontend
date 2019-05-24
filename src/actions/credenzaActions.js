@@ -46,7 +46,6 @@ export function removeFromCredenza(id) {
 
 
 export function updateFaves(foodItem) {
-
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
 
     return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
@@ -63,18 +62,38 @@ export function updateFaves(foodItem) {
   }
 }
 
+
 export function increment(foodItem) {
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
-  debugger
-    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`)
-      .then(response => response.json())
-      .then(incremented => dispatch({ type: 'EDIT_FOOD_SUCCESS', payload: incremented }))
-      .catch(error => dispatch({ type: 'EDIT_FOOD_ERROR', error: error.message }));;
-  };
+
+    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+  method: 'PATCH',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(foodItem)
+    })
+    .then(resp => resp.json())
+    .then(faves => dispatch({ type: 'EDIT_FOOD_SUCCESS', payload: faves}))
+    .catch(error => dispatch({ type: 'EDIT_FOOD_ERROR', error: error.message }));
+  }
 }
 
-// export function increment() {
-//   return {
-//     type: 'INCREMENT'
-//   }
-// }
+
+export function editFoodItem(foodItem) {
+  return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
+
+    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(foodItem)
+        })
+        .then(resp => resp.json())
+        .then(foodItems => dispatch({ type: 'EDIT_FOOD_SUCCESS', payload: foodItems}))
+        .catch(error => dispatch({ type: 'EDIT_FOOD_ERROR', error: error.message }));
+    }
+}
