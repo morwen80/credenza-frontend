@@ -33,7 +33,6 @@ render(){
               incrementing={incrementing}
               decrementing={decrementing}
             />
-
           </span>
         </li>
       </ul>

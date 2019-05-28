@@ -160,6 +160,12 @@ nav a:hover {
   margin-right: .5rem;
 }
 
+input[type="checkbox"] {
+  width: 1.5rem;
+}
+
+
+/* COUNT BUTTONS  */
 .indecresingBtns {
   float: right;
   margin-right: 1rem;
@@ -180,59 +186,10 @@ nav a:hover {
   outline: 0;
 }
 
-input[type="checkbox"] {
-  width: 1.5rem;
+.howMany {
+  font-weight: 700;
+  margin-left: .5rem;
 }
-/* input[type=checkbox] {
-  opacity: 1;
-  width: 1.5rem;
-} */
-
-/* .favedLabel {
-  position: relative;
-}
-
-.favedLabel::before {
-  content: "";
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border: 1px solid var(--accent);
-  border-radius: 3px;
-  /* background-color: var(--offwhite); */
-  /* top: 3px;
-}
-.favedLabel::after {
-  content: "";
-  display: inline-block;
-  height: 10px;
-  width: 9px;
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  transform: rotate(-45deg);
-
-  left: 5px;
-  top: 7px;
-  color: var(--darker);
-}
-
-.favedLabel::before,
-.favedLabel::after {
-  position: absolute;
-} */
-
-/*Hide the checkmark by default*/
-/* input[type="checkbox"] + favedLabel::after {
-    content: none;
-} */
-/*Unhide the checkmark on the checked state*/
-/* input[type="checkbox"]:checked + favedLabel::after {
-    content: "";
-} */
-
-/* input[type="checkbox"]:focus + favedLabel::before {
-    outline: rgb(59, 153, 252) auto 5px;
-} */
 
 
 /*  ABOUT */
@@ -271,22 +228,4 @@ input[type="checkbox"] {
 #egg404 {
   padding-top: 2rem;
   width: 70%;
-}
-
-/* MODAL */
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-}
-.modalBody {
-  text-align: center;
-  background-color: var(--mainWhite);
 }
