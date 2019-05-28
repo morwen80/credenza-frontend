@@ -106,7 +106,7 @@ nav a:hover {
 /* LIST CREDENZA */
 .listCredenza {
   background-color: var(--dark);
-  padding: 0 0 10px 0;
+  padding: 0;
 }
 .emptyCredenza {
   background-color: var(--light);
@@ -149,7 +149,7 @@ input[type="checkbox"] {
 
 }
 .indecresingBtns button {
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   border: 0;
   background-color: transparent;
   padding-top: 0;

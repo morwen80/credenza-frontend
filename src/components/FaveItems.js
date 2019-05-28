@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
-class FaveItems extends Component {
+const FaveItems = (props) => {
 
-  render(){
-    const itemsChecked = this.props.credenza.filter(item => item.faved === true)
-    const listOfFaves = itemsChecked.map(fave => <li key={fave.id}> {fave.food}</li>)
+      const itemsChecked = props.credenza.filter(item => item.faved === true);
+      const listOfFaves = itemsChecked.map(fave => <li key={fave.id}> {fave.food}</li>)
 
-    return (
+      return (
       <div className="faveList">
       <h3>Favourite Items</h3>
 
@@ -15,7 +14,6 @@ class FaveItems extends Component {
       </ul>
       </div>
     )
-  }
 }
 
 

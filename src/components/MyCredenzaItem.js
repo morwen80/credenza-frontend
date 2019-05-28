@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import CountButtons from './CountButtons'
 class MyCredenzaItem extends Component {
 
-
 render(){
 
   const {food, id, faved} = this.props.foodItemObj
