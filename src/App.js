@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
 import About from './components/About';
-import Footer from './components/Footer';
 import ListFaves from './containers/ListFaves';
 import PageNotFound from './components/PageNotFound';
 
@@ -17,7 +16,7 @@ const App = () => (
         <Route path='/about' component={About} />
         <Route component={PageNotFound} />
       </Switch>
-      <Footer />
+
     </div>
   </BrowserRouter>
 )
