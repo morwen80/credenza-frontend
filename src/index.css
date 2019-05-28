@@ -90,27 +90,10 @@ nav a:hover {
 }
 
 /*  HOME PAGE */
-.homepage {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-.homepage button {
-  padding: 1rem;
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  border-radius: 5px;
-  color: var(--offwhite);
-  font-weight: 900;
+.myCredenzaContainer {
+  padding-top: 1.5rem;
 }
 
-.homepage .btn1 {
-  background-color: var(--accent)
-}
-.homepage .btn2{
-  background-color: var(--darker)
-}
 .addItemForm button {
   padding: 1rem;
   font-size: 1.3rem;
@@ -119,12 +102,6 @@ nav a:hover {
   background-color: var(--dark);
   color: var(--offwhite);
 }
-
-/*  MY CREDENZA CONTAINER */
-.myCredenzaContainer {
-  padding-top: 1.5rem;
-}
-
 
 /* LIST CREDENZA */
 .listCredenza {
@@ -228,4 +205,23 @@ input[type="checkbox"] {
 #egg404 {
   padding-top: 2rem;
   width: 70%;
+}
+
+/*  -------------  MEDIA QUERIES  -------------- */
+
+@media screen and (max-width: 990px) {
+  body {
+    width: 100%;
+  };
+
+  .credenzaItem {
+    width: 100%;
+  }
+  .credenzaItem ul {
+    padding: 1rem .5rem;
+  }
+  .credenzaItem li {
+    font-size: 1.4rem;
+  };
+
 }

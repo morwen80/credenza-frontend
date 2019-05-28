@@ -10,7 +10,7 @@ const About = () => (
     <strong>FEAR NO MORE!</strong>
     <br /><br />
     With <strong>Credenza</strong> (it means "pantry" in Italian), you can finally keep track of your items at home, so you won't buy extra food you don't need (or want).
-    <br />
+    <br /><br />
     You can also keep track of your favourite items
     </div>
 
