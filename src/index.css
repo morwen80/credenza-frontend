@@ -128,7 +128,6 @@ nav a:hover {
 
 /* LIST CREDENZA */
 .listCredenza {
-  /* border: 3px solid var(--dark); */
   background-color: var(--dark);
   padding: 0;
 }
@@ -144,7 +143,7 @@ nav a:hover {
   width: 95%;
 }
 .credenzaItem ul {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 .credenzaItem li {
   font-size: 1.3rem;
@@ -156,23 +155,10 @@ nav a:hover {
   color: var(--offwhite);
   font-size: 1rem;
   font-weight: 900;
-  padding: .5rem 1.2rem;
+  padding: .5rem .9rem;
   border-radius: 5px;
   margin-right: .5rem;
 }
-/* .indecresingBtns {
-  float: right;
-  display: flex;
-  flex-direction: column;
-} */
-/* .indecresingBtns button {
-  background-color: var(--accent);
-  color: var(--offwhite);
-  border: 1px solid var(--accent);
-  text-align: center;
-  height: 20px;
-  width: 20px;
-} */
 
 .indecresingBtns {
   float: right;
@@ -190,9 +176,12 @@ nav a:hover {
 .indecresingBtns button:hover {
   color: var(--darker);
 }
-
 .indecresingBtns button:focus{
   outline: 0;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
 }
 /* input[type=checkbox] {
   opacity: 1;

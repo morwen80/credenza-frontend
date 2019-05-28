@@ -77,34 +77,7 @@ export default function credenzaReducer(state = initialState, action){
         ...state,
          loading: false,
          error: action.error.message
-      }
-
-      case 'INCREMENT_ATTEMPT':
-        return {
-          ...state,
-           loading: true,
-           error: null
-        }
-
-//     case 'INCREMENT_SUCCESS':
-//     const incremented = state.foodItems.map(foodObj => foodObj.id === action.id ? {foodObj, itemnum: action.payload} : foodObj)
-//   return {
-//     ...state,
-//     loading: false,
-//     error: null,
-//     foodItems: newFoodItems
-// }
-//       return {
-//         ...state,
-//           itemnumber: state.foodItems.itemnumber + 1
-//         };
-
-        case 'INCREMENT_ERROR':
-          return {
-            ...state,
-             loading: false,
-             error: action.error.message
-          }
+      };
 
     default:
       return state

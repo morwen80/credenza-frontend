@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import ListCredenza from './ListCredenza'
 import FaveItems from '../components/FaveItems'
 import { connect } from 'react-redux';
 import {fetchCredenza}  from '../actions/credenzaActions'
@@ -24,20 +23,15 @@ class ListFaves extends Component {
 }
 
 
-
-
 const mapStateToProps = state => {
   return {
-    // loading: state.faves.loading,
-    // faves: state.faves.faves,
     credenza: state.foodItems.foodItems
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCredenza: () => dispatch(fetchCredenza()),
-    // fetchFaves: () => dispatch(fetchFaves()),
+    fetchCredenza: () => dispatch(fetchCredenza())
   }
 }
 

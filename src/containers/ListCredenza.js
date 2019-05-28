@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { removeFromCredenza, updateFaves, increment, editFoodItem} from '../actions/credenzaActions'
+import { removeFromCredenza, editFoodItem} from '../actions/credenzaActions'
 import MyCredenzaItem from '../components/MyCredenzaItem';
 
 class ListCredenza extends Component {
-  constructor(){
-    super()
-    this.state = {
-      modalOpen: true,
-    }
-  }
 
   componentDidMount(){
     this.props.fetchCredenza();
@@ -68,12 +62,9 @@ const foodList = this.props.credenza.map(foodItem =>
   }
 }
 
-
 const mapDispatchToProps = dispatch => {
   return {
     removeFromCredenza: (id) => dispatch(removeFromCredenza(id)),
-    updateFaves: (obj) => dispatch(updateFaves(obj)),
-    increment: (obj) => dispatch(increment(obj)),
     editFoodItem: (obj) => dispatch(editFoodItem(obj))
   }
 }
