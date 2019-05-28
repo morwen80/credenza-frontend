@@ -20,7 +20,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 70%;
-  height: 100vh;
+  min-height: 100vh;
+  margin-bottom: 10px;
+  clear: both;
   margin: 0 auto;
   background-color: var(--light);
 }
@@ -205,6 +207,17 @@ input[type="checkbox"] {
 #egg404 {
   padding-top: 2rem;
   width: 70%;
+}
+
+.footer {
+   /* position: fixed; */
+   /* left: 0;
+   bottom: 0; */
+   width: 100%;
+   height: 15px;
+   font-size: .8rem;
+   color: var(--accent);
+   text-align: center;
 }
 
 /*  -------------  MEDIA QUERIES  -------------- */

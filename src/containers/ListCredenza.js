@@ -18,7 +18,7 @@ class ListCredenza extends Component {
   }
 
   newFaved = (obj) => {
-    this.props.updateFaves(obj)
+    this.props.editFoodItem(obj)
   }
 
   incrementing = (obj) => {
