@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const FaveItems = (props) => {
 
@@ -8,7 +8,6 @@ const FaveItems = (props) => {
       return (
       <div className="faveList">
       <h3>Favourite Items</h3>
-
       <ul>
         {listOfFaves.length < 1 ? <h3>No faves yet :( </h3> : listOfFaves}
       </ul>

@@ -31,6 +31,9 @@ class ListCredenza extends Component {
       obj.itemnumber = obj.itemnumber - 1;
       this.props.editFoodItem(obj);
     }
+    else {
+      this.props.removeFromCredenza(obj.id)
+    }
   }
 
 render () {

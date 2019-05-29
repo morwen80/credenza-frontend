@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import CountButtons from './CountButtons'
+import CountButtons from './CountButtons';
+
 class MyCredenzaItem extends Component {
 
 render(){
-
   const {food, id, faved} = this.props.foodItemObj
   const {foodItemObj, newFaved, toggleFaved, incrementing, decrementing, removingFromCredenza} = this.props
 
@@ -20,12 +20,10 @@ render(){
             onChange={() => toggleFaved(foodItemObj)}
             onClick={() => newFaved({...foodItemObj, faved:!faved})}
           />
-
             {food}
             <button onClick={() => removingFromCredenza(id)} className="delete-food">
               <i className="fas fa-trash-alt"></i>
             </button>
-
             <CountButtons
               key={id}
               foodObj={foodItemObj}
@@ -36,7 +34,6 @@ render(){
         </li>
       </ul>
     </div>
-
   )}
 }
 

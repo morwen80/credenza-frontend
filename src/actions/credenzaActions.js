@@ -7,7 +7,6 @@ export function fetchCredenza() {
   };
 }
 
-
 export function addToCredenza(newFoodItem) {
   const newFood = {
     food: newFoodItem.food,
@@ -36,14 +35,12 @@ export function removeFromCredenza(id) {
   return (dispatch) => {
     dispatch({ type: 'REMOVE_FROM_CREDENZA', payload: id });
 
-    fetch(`http://localhost:3000/fooditems/${id}`, {
+    return fetch(`http://localhost:3000/fooditems/${id}`, {
       method: 'DELETE'}
     )
     .then(response => response.json())
-    .then(foodInCredenza => dispatch({ type: 'FETCH_FROM_CREDENZA', payload: foodInCredenza }));
   };
 }
-
 
 export function updateFaves(foodItem) {
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
