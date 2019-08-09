@@ -22,13 +22,13 @@ class ListCredenza extends Component {
   }
 
   incrementing = (obj) => {
-    obj.itemnumber = obj.itemnumber + 1;
+    obj.itemNumber = obj.itemNumber + 1;
     this.props.editFoodItem(obj)
   }
 
   decrementing = (obj) => {
-    if(obj.itemnumber > 1) {
-      obj.itemnumber = obj.itemnumber - 1;
+    if(obj.itemNumber > 1) {
+      obj.itemNumber = obj.itemNumber - 1;
       this.props.editFoodItem(obj);
     }
     else {
@@ -37,7 +37,6 @@ class ListCredenza extends Component {
   }
 
 render () {
-
 
 const foodList = this.props.credenza.map(foodItem =>
     <li key={foodItem.id}>
@@ -49,7 +48,6 @@ const foodList = this.props.credenza.map(foodItem =>
         newFaved={this.newFaved}
         incrementing={this.incrementing}
         decrementing={this.decrementing}
-
       />
     </li>
   )

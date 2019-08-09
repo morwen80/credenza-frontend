@@ -171,7 +171,31 @@ input[type="checkbox"] {
 
 /*  ABOUT */
 .about-page {
-  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.desc {
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+.author {
+  font-size: 1.2rem;
+  background-color: var(--offwhite);
+  padding: 1rem;
+  margin: 2rem;
+  overflow: hidden;
+}
+.author img {
+  width: 22%;
+  margin-right: .6rem;
+  float: left;
+  border-radius: 50%;
+}
+.social .fab {
+  padding-top: 2rem;
+    color: var(--accent);
+    font-size: 1.7rem;
+    margin-left: 1rem;
 }
 
 /*  FAVES */
@@ -220,7 +244,7 @@ input[type="checkbox"] {
 
 /*  -------------  MEDIA QUERIES  -------------- */
 
-@media screen and (max-width: 990px) {
+@media screen and (min-width: 320px) and (max-width : 600px) {
   body {
     width: 100%;
   };
@@ -234,5 +258,32 @@ input[type="checkbox"] {
   .credenzaItem li {
     font-size: 1.4rem;
   };
+
+  /*  ABOUT */
+
+.desc {
+    margin-bottom: 1rem;
+}
+  .author {
+    margin: 0;
+    overflow: auto;
+  }
+
+  .author img {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0%;
+    float: none;
+  }
+  .author p {
+    padding-top: 1rem;
+  }
+  .social {
+    text-align: center;
+  }
+  .social .fab {
+    font-size: 2rem;
+  }
 
 }

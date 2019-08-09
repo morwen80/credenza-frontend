@@ -1,7 +1,7 @@
 export function fetchCredenza() {
   return (dispatch) => { dispatch({ type: 'LOAD_CREDENZA' });
 
-    return fetch('http://localhost:3000/fooditems/')
+    return fetch('http://localhost:3000/food_units/')
       .then(response => response.json())
       .then(foodInCredenza => dispatch({ type: 'FETCH_CREDENZA_SUCCESS', payload: foodInCredenza }));
   };
@@ -10,14 +10,14 @@ export function fetchCredenza() {
 export function addToCredenza(newFoodItem) {
   const newFood = {
     food: newFoodItem.food,
-    itemnumber: 1,
+    itemNumber: 1,
     list_id: 1,
     faved: false
   }
   return (dispatch) => {
     dispatch({ type: 'LOAD_CREDENZA' });
 
-    fetch('http://localhost:3000/fooditems', {
+    fetch('http://localhost:3000/food_units', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -35,7 +35,7 @@ export function removeFromCredenza(id) {
   return (dispatch) => {
     dispatch({ type: 'REMOVE_FROM_CREDENZA', payload: id });
 
-    return fetch(`http://localhost:3000/fooditems/${id}`, {
+    return fetch(`http://localhost:3000/food_units/${id}`, {
       method: 'DELETE'}
     )
     .then(response => response.json())
@@ -45,7 +45,7 @@ export function removeFromCredenza(id) {
 export function updateFaves(foodItem) {
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
 
-    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+    return fetch(`http://localhost:3000/food_units/${foodItem.id}`, {
   method: 'PATCH',
   headers: {
     'Accept': 'application/json',
@@ -63,7 +63,7 @@ export function updateFaves(foodItem) {
 export function increment(foodItem) {
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
 
-    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+    return fetch(`http://localhost:3000/food_units/${foodItem.id}`, {
   method: 'PATCH',
   headers: {
     'Accept': 'application/json',
@@ -81,7 +81,7 @@ export function increment(foodItem) {
 export function editFoodItem(foodItem) {
   return (dispatch) => { dispatch({ type: 'EDIT_FOOD_ATTEMPT' });
 
-    return fetch(`http://localhost:3000/fooditems/${foodItem.id}`, {
+    return fetch(`http://localhost:3000/food_units/${foodItem.id}`, {
       method: 'PATCH',
       headers: {
         'Accept': 'application/json',
